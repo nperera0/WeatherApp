@@ -30,10 +30,8 @@ public class SettingsActivity extends PreferenceActivity
         // updated when the preference changes.
         // here is where we update the location preference , this is a key value pair =>
         // key is pref_location_key and value is Toronto in this case
-
-       // SharedPreferences sharedPref = context.getSharedPreferences(
-         //       getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_location_key)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_units_key)));
 
         Log.v(LOG_TAG, "preference changed " + getString(R.string.pref_location_key));
     }

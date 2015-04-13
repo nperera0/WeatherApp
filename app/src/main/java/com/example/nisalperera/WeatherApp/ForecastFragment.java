@@ -70,18 +70,20 @@ public class ForecastFragment extends Fragment {
     }
 
     private void updateWeather(){
-        FetchweatherTask fetchTask = new FetchweatherTask();
 
         // we read the preferences here , if preferences is not set we fall back to the default
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
         Log.v(LOG_TAG, "pref_location_key " + getString(R.string.pref_location_key));
         Log.v(LOG_TAG, "pref_location_default " + getString(R.string.pref_location_default));
 
+        //these two are used as params[0] and params[1] when crating the url i fetchweather task
         String location = prefs.getString(getString(R.string.pref_location_key),getString(R.string.pref_location_default));
+        String units = prefs.getString(getString(R.string.pref_units_key),getString(R.string.pref_units_metric));
 
         Log.v(LOG_TAG, "got new location at " + location);
 
-        fetchTask.execute(location);
+        FetchweatherTask fetchTask = new FetchweatherTask();
+        fetchTask.execute(location,units);
     }
 
     @Override
@@ -151,7 +153,7 @@ public class ForecastFragment extends Fragment {
                 Uri builtUri = Uri.parse(FORECAST_BASE_URL).buildUpon()
                         .appendQueryParameter(QUERY_PARAM, params[0])
                         .appendQueryParameter(FORMAT_PARAM, "json")
-                        .appendQueryParameter(UNITS_PARAM, "metric")
+                        .appendQueryParameter(UNITS_PARAM, params[1])
                         .appendQueryParameter(DAYS_PARAM, "15") //for next 20 days
                         .build();
 

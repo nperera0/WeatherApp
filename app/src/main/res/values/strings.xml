@@ -6,6 +6,18 @@
     <string name="pref_location_key" translatable="false">location</string>
     <string name="pref_location_default" translatable="false">Toronto</string>
 
+    <string name="pref_units_key" translatable="false">units</string>
+    <string name="pref_units_metric" translatable="false">metric</string>
+    <string name="pref_units_imperial" translatable="false">imperial</string>
+    <string-array name="pref_units_list_values">
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
+    </string-array>
+    <string-array name="pref_units_list_titles">
+        <item>@string/pref_units_metric</item>
+        <item>@string/pref_units_imperial</item>
+    </string-array>
+
     <string name="title_activity_test">test</string>
     <string name="hello_world">Hello world!</string>
 
