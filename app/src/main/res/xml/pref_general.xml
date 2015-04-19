@@ -2,7 +2,7 @@
 
     <!--TODO using google API-->
     <CheckBoxPreference
-        android:key="example_checkbox"
+        android:key="location_checkbox"
         android:title="Automatically find my location"
         android:summary="Find your current location using GPS"
         android:defaultValue="false" />
